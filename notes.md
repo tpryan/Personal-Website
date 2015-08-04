@@ -1,0 +1,3 @@
+Install Memcache
+
+Restart Apache.

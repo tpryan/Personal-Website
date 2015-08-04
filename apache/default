@@ -1,0 +1,102 @@
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+  DocumentRoot /var/www
+  <Directory />
+		Options FollowSymLinks
+		AllowOverride None
+  </Directory>
+  <Directory /var/www/>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride All
+		Order allow,deny
+		allow from all
+  </Directory>
+  ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+  <Directory "/usr/lib/cgi-bin">
+		AllowOverride None
+		Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+		Order allow,deny
+		Allow from all
+  </Directory>
+
+	# Wordpress config
+	Alias /blog /var/wordpress
+	<Directory /var/wordpress>
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+	RewriteEngine On
+	RewriteRule ^(.+?)\.cfm /cfmlhandler.php 
+
+
+	ErrorDocument 404 /error/error404.php
+	Redirect 301 /dear-coldfusion-skeptic/ http://terrenceryan.com/blog/index.php/dear-coldfusion-skeptic/
+
+	AddDefaultCharset UTF-8
+
+	AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript text/javascript image/svg+xml
+
+	ExpiresActive On
+	ExpiresByType image/gif "access plus 1 months"
+	ExpiresByType image/jpg "access plus 1 months"
+	ExpiresByType image/jpeg "access plus 1 months"
+	ExpiresByType image/png "access plus 1 months"
+	ExpiresByType image/vnd.microsoft.icon "access plus 1 months"
+	ExpiresByType image/x-icon "access plus 1 months"
+	ExpiresByType image/ico "access plus 1 months"
+	ExpiresByType application/javascript "now plus 1 months"
+	ExpiresByType application/x-javascript "now plus 1 months"
+	ExpiresByType text/javascript "now plus 1 months"
+	ExpiresByType text/css "now plus 1 months"
+	ExpiresByType image/svg+xml "now plus 1 months"
+	ExpiresByType application/x-font-woff "now plus 1 months"
+	ExpiresDefault "access plus 1 days"
+
+
+	
+
+
+</VirtualHost>
+# Explicitly turn off rewrites if we match /server-status
+# (for Google Cloud Monitoring Apache agent plugin to function)
+<IfModule mod_status.c>
+	<Location /server-status>
+		RewriteEngine off
+		SetHandler server-status
+		Order deny,allow
+		Deny from all
+		Allow from localhost ip6-localhost
+	</Location>
+</IfModule>
+
+<IfModule mod_ssl.c>
+	<VirtualHost _default_:443>
+		ServerAdmin webmaster@localhost
+		DocumentRoot /var/www
+		ErrorLog ${APACHE_LOG_DIR}/error.log
+		CustomLog ${APACHE_LOG_DIR}/access.log combined
+		SSLEngine on
+		SSLCertificateFile /usr/local/ssl/crt/terrenceryan.crt
+		SSLCertificateKeyFile /usr/local/ssl/private/terrenceryan.key
+		SSLCACertificateFile /usr/local/ssl/crt/rapidsslintermediate.crt
+		<FilesMatch "\.(cgi|shtml|phtml|php)$">
+			SSLOptions +StdEnvVars
+		</FilesMatch>
+		<Directory /usr/lib/cgi-bin>
+			SSLOptions +StdEnvVars
+		</Directory>
+		BrowserMatch "MSIE [2-6]" \
+		nokeepalive ssl-unclean-shutdown \
+		downgrade-1.0 force-response-1.0
+		BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+	</VirtualHost>
+</IfModule>
+
+

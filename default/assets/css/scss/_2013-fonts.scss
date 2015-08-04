@@ -1,0 +1,62 @@
+$basefont : "myriad-pro", "Helvetica";
+$slabfont : "myriad-pro", "Helvetica";
+$headfont : "myriad-pro-condensed";
+
+body{
+	font-family: $basefont;
+}
+
+header{
+		h1{
+			font-family: $slabfont;
+			font-weight: 100;
+			strong{
+				font-weight: 700;
+			}
+		}
+}
+
+article{
+	h1{
+		font-family: $headfont;
+		font-weight: 900;
+
+	}
+
+
+}
+.main{
+	h1{
+		font-family: $headfont;
+		font-weight: 900;
+		text-transform: uppercase;
+
+	}
+
+	h2{
+		font-family: $headfont;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+}
+
+.top-bar nav{
+	font-family: $headfont;
+	font-weight: 100;
+	text-transform: uppercase;
+
+}
+
+
+footer{
+	font-family: $slabfont;
+	font-weight: 100;
+}
+
+@include fontface (fonts,entypo);
+@include fontface (fonts,entypo-social);
+
+.icon{
+	font-family: entypo-social, entypo;
+}

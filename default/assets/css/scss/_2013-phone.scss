@@ -1,0 +1,128 @@
+
+@media screen and (max-width: 699px) {
+
+	.top-bar {	
+		.page-title {
+			.tweet{
+				display: none;
+			}
+			h1{
+				display: none;
+			}	
+			nav{
+				width: 100%;
+				text-align: left;
+				font-size: 1.4rem;
+				margin-bottom: .4rem;
+				a{
+					text-decoration: none;
+				}
+				.active{
+					color: #666;
+					border-bottom: 4px solid $main-highlight-color;
+				}
+
+			}		
+		}
+	}
+
+
+
+}
+
+@media screen and (max-width: 650px) {
+	body{
+		
+	}
+
+	.centered{
+		max-width: 100%;
+	}
+
+
+	.main{
+	
+		.column{
+			width: 100%;
+			padding: 0;
+			article{
+                
+				img{
+					float:right;
+                    position: relative;
+                    margin: 0 0 5px 5px;
+				}
+                &:after{
+                    content: "";
+                    display:table;
+                    clear:both;
+                }
+
+                .flag{
+                    float: none;
+                    position: static;
+    vertical-align:middle;
+                }
+    
+			}
+		}
+	}
+
+
+
+}
+
+@media screen and (max-width: 399px) {
+	.top-bar {	
+		.page-title {
+			nav{
+				font-size: 1.1rem;
+
+			}		
+		}
+	}
+}		
+
+
+@media screen and (max-width: 320px) {
+	.top-bar {	
+		.page-title {
+			nav{
+				font-size: 1.3rem;
+				li{
+					display: block;
+					border-right: 0;
+					line-height: 1.5;
+				}
+
+			}		
+		}
+	}
+    
+
+}
+
+
+@media screen and (max-width: 299px) {
+    
+    .main{
+	    .externalref{
+            margin: 0;
+        }    
+		.column{
+            padding-bottom: 15px;
+			article{
+                margin-bottom: 5px;
+				img{
+                    display: block;
+					float:none;
+                    position: static;
+                    margin: 5px auto;
+                    max-width: 100%;
+				}
+    
+			}
+		}
+	}
+
+}

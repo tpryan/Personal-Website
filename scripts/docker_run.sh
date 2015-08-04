@@ -1,0 +1,1 @@
+docker run -d -P -p 80:80 --add-host=docker:192.168.59.3  -v "/Users/tpryan/Google Drive/Sites/terrenceryan.dev/default":/var/www/html -v "/Users/tpryan/Google Drive/Sites/terrenceryan.dev/wordpress":/var/www/html/blog php-base

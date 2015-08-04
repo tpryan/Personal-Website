@@ -1,0 +1,16 @@
+wordpress/wp-includes/*
+wordpress/wp-admin/*
+*.scssc
+default/config/creds.php
+wordpress/wp-config.php
+
+wordpress/*.php
+wordpress/license.txt
+wordpress/readme.html
+wordpress/xmlrpc.php
+
+wordpress/wp-content/plugins/
+
+wordpress/wp-content/*.php
+
+wordpress/wp-content/themes/twentythirteen/
