@@ -13,19 +13,13 @@ $contentCreationFunction = function ($lanyrd_url, $count){return refreshLanyrdHT
 
 $content_html = getFromCacheOrCreate($memcache, $cache_name, $cache_age, $contentCreationFunction, $contentCreationStore, $count);
 
-
-
-
 echo $content_html;
-
-
 
 function refreshLanyrdHTML($lanyrd_url, $count){
 	$lanyrd_content = get_content_from_lanyrd($lanyrd_url);
 	$lanyrd_html = generateEventHTML($lanyrd_content,$count);
 	return $lanyrd_html;
 }
-
 
 function generateEventHTML($lanyrd_content,$count){
 
@@ -107,6 +101,8 @@ function generateEventHTML($lanyrd_content,$count){
 		}
 		$result .= $entry;
 	}
+
+	
 	return $result;
 }
 
@@ -126,11 +122,12 @@ function format_address($address_info){
 	return $results;
 }
 
-
 function get_content_from_lanyrd($url) {
 	date_default_timezone_set('Europe/London');
 	$results = [];
 	$content = url_get_contents($url);
+
+
 
 	if (strpos($content, "VEVENT") == false){
 		return $results;
@@ -139,6 +136,8 @@ function get_content_from_lanyrd($url) {
 
 	$content = explode("\n", $content);
 	$j = 0;
+
+
 
 	for ($i=0; $i < count($content); $i++){
 
@@ -186,9 +185,9 @@ function get_content_from_lanyrd($url) {
 
 	}
 
-
 	$results = sort_lanyrd_results($data);
 	$results = fix_addresses($results);
+
 	return $results;
 }
 
@@ -201,7 +200,6 @@ function fix_addresses($lanyrd_details){
 
 	return $lanyrd_details;
 }
-
 
 function sort_lanyrd_results($lanyrd_content){
 	$dates = array();
@@ -219,9 +217,7 @@ function normalize_address($address){
 	$map_data = get_content_from_service($base_url . $address);
 	$results = extracts_geo_details($map_data);
 	return $results;
-
 }
-
 
 function extracts_geo_details($googleinfo){
 	$results = array('city'=>"",'state'=>"",'country'=>"",'country_code'=>"");
@@ -245,9 +241,4 @@ function extracts_geo_details($googleinfo){
 	return $results;
 }
 
-
-
-
-
 ?> 
-
