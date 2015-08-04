@@ -14,3 +14,7 @@ wordpress/wp-content/plugins/
 wordpress/wp-content/*.php
 
 wordpress/wp-content/themes/twentythirteen/
+
+wordpress/wp-content/themes/index.php
+
+wordpress/wp-content/themes/index.php
