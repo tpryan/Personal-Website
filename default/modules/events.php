@@ -138,6 +138,7 @@ function get_content_from_lanyrd($url) {
 	$j = 0;
 
 
+	
 
 	for ($i=0; $i < count($content); $i++){
 
@@ -151,11 +152,20 @@ function get_content_from_lanyrd($url) {
 			$data[$j]['url'] = "";
 			$data[$j]['start'] = "";
 			$data[$j]['end'] = "";
+			$data[$j]['lat'] = "";
+			$data[$j]['lon'] = "";
 		}
 
 		if (strpos($content[$i],"SUMMARY") !== false){
 			$str = explode(":", $content[$i]);
 			$data[$j]['title'] = $str[1];
+		}
+
+		if (strpos($content[$i],"GEO") !== false){
+			$str = explode(":", $content[$i]);
+			$str = explode(";", $str[1]);
+			$data[$j]['lat'] = round($str[0],2);
+			$data[$j]['lon'] = round($str[1],2);
 		}
 
 		if ((strpos($content[$i],"DESCRIPTION") !== false)) {
@@ -185,16 +195,30 @@ function get_content_from_lanyrd($url) {
 
 	}
 
+	// echo "<pre>";
+	// var_dump($data);
+	// exit;
+
 	$results = sort_lanyrd_results($data);
 	$results = fix_addresses($results);
+
+
+	
 
 	return $results;
 }
 
 function fix_addresses($lanyrd_details){
 
+
 	for ($i=0; $i<count($lanyrd_details); $i++){
-		$lanyrd_details[$i]['location_fixed'] = normalize_address($lanyrd_details[$i]['location']);
+		
+		$results = normalize_address($lanyrd_details[$i]['location']);
+		if ($results['country'] == ""){
+			$results = reverse_geocode($lanyrd_details[$i]['lat'],$lanyrd_details[$i]['lon']);
+
+		}
+		$lanyrd_details[$i]['location_fixed'] = $results;
 	}
 
 
@@ -219,9 +243,23 @@ function normalize_address($address){
 	return $results;
 }
 
+function reverse_geocode($lat, $lon){
+	// I hate myself.  But I gots to do what I gots to do. 
+	$maps_key = $GLOBALS['maps_key'];
+	$base_url ="https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lat.",".$lon."&key=" . $maps_key;
+	$map_data = get_content_from_service($base_url);
+	$results = extracts_geo_details($map_data);
+	return $results;
+}
+
 function extracts_geo_details($googleinfo){
 	$results = array('city'=>"",'state'=>"",'country'=>"",'country_code'=>"");
 	
+
+	if (!isset($googleinfo['results'][0])){
+		return $results;
+	}
+
 	$address_components = $googleinfo['results'][0]['address_components'];
 
 	for ($i=0; $i<count($address_components); $i++){
