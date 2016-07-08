@@ -17,13 +17,6 @@ $content_html = getFromCacheOrCreate($memcache, $cache_name, $cache_age, $conten
 echo $content_html;
 
 
-
-
-
-
-
-
-
 function refreshBlogHTML($dbInfo, $count){
 	$blog_content = getPostsFromDataBase($dbInfo, $count);
 	$blog_html = generateBlogHTML($blog_content);
