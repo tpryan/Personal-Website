@@ -1,6 +1,6 @@
 BASEDIR = $(shell pwd)
+IMAGE = terrenceryan_mysql
 include ../Makefile.properties
-
 
 env:
 	@echo "Making sure project settings all in order"
@@ -15,16 +15,16 @@ getprod: env
 	gsutil rm gs://$(GCS_BUCKET)/sql/prod.sql
 
 
-# terrenceryansql proceses
 build:
-	docker build -t terrenceryan-base "$(BASEDIR)/."  
+	docker build -t $(IMAGE) "$(BASEDIR)/."  
+
 clean:
-	-docker stop -t 0 terrenceryansql
-	-docker rm terrenceryansql
+	-docker stop -t 0 $(IMAGE)
+	-docker rm $(IMAGE)
 
-run:
-	docker run --name=terrenceryansql -d -p 3306:3306 \
-	-e STARTUP_SQL="prod.sql creds.sql" terrenceryan-base 	
+serve:
+	docker run --name=$(IMAGE) -d -p 3306:3306 \
+	-e STARTUP_SQL="prod.sql creds.sql" $(IMAGE) 	
 
-
-develop: clean build run	
+run: clean build serve
+	@echo ""
