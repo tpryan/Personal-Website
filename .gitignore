@@ -20,3 +20,6 @@ wordpress/wp-content/themes/index.php
 wordpress/wp-content/themes/index.php
 sql/creds.sql
 Makefile.properties
+frontend/www/assets/css/.sass-cache
+frontend/www/config/creds.php
+frontend/www/test.php
