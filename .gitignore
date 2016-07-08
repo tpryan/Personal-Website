@@ -18,3 +18,5 @@ wordpress/wp-content/themes/twentythirteen/
 wordpress/wp-content/themes/index.php
 
 wordpress/wp-content/themes/index.php
+sql/creds.sql
+Makefile.properties
