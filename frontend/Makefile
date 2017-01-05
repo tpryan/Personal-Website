@@ -11,6 +11,7 @@ clean:
 	-docker rm $(IMAGE)
 
 serve:
-	docker run --name=$(IMAGE) -v "$(BASEDIR)/www":/app/web --link terrenceryan_mysql:terrenceryan_mysql -d -P -p 80:8080 $(IMAGE) 	
+	docker run --name=$(IMAGE) -v "$(BASEDIR)/www":/app/web \
+	--link terrenceryan_mysql:terrenceryan_mysql -d -P -p 80:8080 $(IMAGE) 	
 
 run: clean build serve
