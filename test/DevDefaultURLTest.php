@@ -1,5 +1,5 @@
 <?php
-class URLTest extends PHPUnit_Framework_TestCase
+class MyURLTest extends PHPUnit_Framework_TestCase
 {
     
 

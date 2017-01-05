@@ -11,3 +11,13 @@ env:
 run:
 	cd "$(BASEDIR)/sql/" && $(MAKE) run
 	cd "$(BASEDIR)/frontend/" && $(MAKE) run	
+
+clean:
+	cd "$(BASEDIR)/sql/" && $(MAKE) clean
+	cd "$(BASEDIR)/frontend/" && $(MAKE) clean	
+
+
+
+runtests:
+	@echo "test"
+	phpunit test	
