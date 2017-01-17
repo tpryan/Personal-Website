@@ -80,33 +80,33 @@ class MyURLTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($status==200, $status . " " . $urlToTest);
     }
 
-     public function test301AboutURL() {
+     public function testSlashAboutURL() {
         $urlToTest = $this->baseURL . "/about";
         $status = $this->getStatusCode($urlToTest);
-        $this->assertTrue($status==301, $status . " " . $urlToTest);
+        $this->assertTrue($status==200, $status . " " . $urlToTest);
     }
 
-    public function test301ResumeURL() {
+    public function testSlashResumeURL() {
         $urlToTest = $this->baseURL . "/resume";
         $status = $this->getStatusCode($urlToTest);
-        $this->assertTrue($status==301, $status . " " . $urlToTest);
+        $this->assertTrue($status==200, $status . " " . $urlToTest);
     }
 
-    public function test301BookURL() {
+    public function testSlashBookURL() {
         $urlToTest = $this->baseURL . "/book";
         $status = $this->getStatusCode($urlToTest);
-        $this->assertTrue($status==301, $status . " " . $urlToTest);
+        $this->assertTrue($status==200, $status . " " . $urlToTest);
     }
 
-    public function test301ContactURL() {
+    public function testSlashContactURL() {
         $urlToTest = $this->baseURL . "/contact";
         $status = $this->getStatusCode($urlToTest);
-        $this->assertTrue($status==301, $status . " " . $urlToTest);
+        $this->assertTrue($status==200, $status . " " . $urlToTest);
     }
-    public function test301ThanksURL() {
+    public function testSlashThanksURL() {
         $urlToTest = $this->baseURL . "/thanks";
         $status = $this->getStatusCode($urlToTest);
-        $this->assertTrue($status==301, $status . " " . $urlToTest);
+        $this->assertTrue($status==200, $status . " " . $urlToTest);
     }
 
 

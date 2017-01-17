@@ -4,7 +4,9 @@
 	$app_name = "terrenceryan_com";
 
 	$memcache = new Memcached;
-	$memcache->addServer('localhost', 11211);
+	// $memcache->addServer('127.0.0.1', 11211);
+
+	broadcast($memcache->getResultCode());
 	
 
 	set_error_handler(
@@ -59,6 +61,8 @@
 				$content_html = $contentCreationFunction($contentCreationStore, $count);
 				$cache_html = "<!-- From Cache -->" . $content_html;
 				$result = $memcache->set($cache_name, $cache_html, $cache_age);
+				broadcast($result);
+				broadcast($memcache->getResultCode());
 			} catch (Exception $e) {
 				$content_html = "<p>No entries</p>";
 				// var_dump($e);exit;

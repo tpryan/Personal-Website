@@ -16,7 +16,8 @@ clean:
 	cd "$(BASEDIR)/sql/" && $(MAKE) clean
 	cd "$(BASEDIR)/frontend/" && $(MAKE) clean	
 
-
+deploy: env
+	cd "$(BASEDIR)/frontend/" && $(MAKE) deploy	
 
 runtests:
 	@echo "test"
