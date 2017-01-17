@@ -1,1 +1,0 @@
-docker run -d -P -p 80:80 --name=frontend --add-host=docker:192.168.99.100  -v "/Users/tpryan/Google Drive/Sites/terrenceryan.dev/default":/var/www/html -v "/Users/tpryan/Google Drive/Sites/terrenceryan.dev/wordpress":/var/www/html/blog php-base

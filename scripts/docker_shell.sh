@@ -1,1 +1,0 @@
-docker exec -i -t $(docker ps -q --filter=image=php-base) bash
