@@ -3,33 +3,37 @@ api_version: 1
 
 handlers:
 # Serve images as static resources.
-- url: /(.+\.(gif|png|jpg|svg))$
+- url: /(.+\.(gif|png|jpg|svg|ico))$
   static_files: \1
-  upload: .+\.(gif|png|jpg|svg)$
+  upload: .+\.(gif|png|jpg|svg|ico)$
   application_readable: true
 
-- url: /(.+\.(html|css|js|woff|ttf))$
+- url: /(.+\.(html|css|js|woff|ttf|txt))$
   static_files: \1
-  upload: .+\.(html|css|js|woff|ttf)$
+  upload: .+\.(html|css|js|woff|ttf|txt)$
   application_readable: true
 
 - url: /assets/css
   static_dir: /assets/css  
 
+# Redirect all blog traffic. 
 - url: /blog/.*
   script: /blog/parse.php
 
-# Serve php scripts.
+# Serve up aby root php scripts.
 - url: /(.+\.php)$
   script: \1
 
+# Set subfolder root to index.php
 - url: /(.+)/$
   script: \1/index.php
 
 - url: /(.+)$
   script: \1/index.php 
 
-
-# Serve php scripts.
+# Set root to index.php
 - url: /
   script: /index.php  
+
+skip_files:
+    - Makefile 
