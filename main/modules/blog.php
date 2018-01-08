@@ -26,7 +26,7 @@ function refreshBlogHTML($dbInfo, $count){
 function getPostsFromDataBase($dbInfo, $count){
 	// Make a MySQLi Connection
 	if (isset($_SERVER['SERVER_SOFTWARE']) && strpos($_SERVER['SERVER_SOFTWARE'],'Google App Engine') !== false) {
-		$mysqli = mysqli_connect(null, $dbInfo['username'], $dbInfo['password'], $dbInfo['db'], 0, $dbInfo['host']) or die(mysqli_error());
+		$mysqli = mysqli_connect(null, $dbInfo['username'], $dbInfo['password'], $dbInfo['db'], null, "/cloudsql/" .$dbInfo['host']);
 	} else{
 		$mysqli = mysqli_connect($dbInfo['host'], $dbInfo['username'], $dbInfo['password'], $dbInfo['db']) or die(mysqli_error());
 	}	
