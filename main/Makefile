@@ -1,4 +1,9 @@
+BASEDIR = $(shell pwd)
 
+include ../Makefile.properties
 
-dev:
+run:
 	dev_appserver.py  .
+
+deploy:
+	gcloud app deploy app.yaml --project $(GCP_PROJECT) -q
