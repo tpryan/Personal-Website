@@ -4,6 +4,6 @@ function redirect($url, $statusCode = 302){
     die();
 }
 $hostname = "blog.terrenceryan.com";
-$new_path = str_replace("/blog/","",$_SERVER['PATH_INFO']);
-$destination = "http://" . $hostname ."/" . $new_path;
+$new_path = str_replace("/blog/","",$_SERVER['REQUEST_URI']);
+$destination = "https://" . $hostname ."/" . $new_path;
 redirect($destination, 301);
