@@ -30,8 +30,12 @@ builddocker:
 serve: 
 	docker run --name=$(APPNAME) -d -P -p 8080:80 $(APPNAME)	
 
-rundocker: builddocker serve
+dev: cleandocker builddocker serve
 
 cleandocker:
 	-docker stop $(APPNAME)
 	-docker rm $(APPNAME)		
+
+
+css:
+	sass --watch main/assets/css/scss/main.scss:main/assets/css/main.css
