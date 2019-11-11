@@ -18,6 +18,7 @@ if (isset($_SERVER['HTTP_HOST']) && ($_SERVER['HTTP_HOST'] == "127.0.0.1" || $_S
 
 	// I hate myself.  But I gots to do what I gots to do. 
 	$GLOBALS['maps_key'] = "AIzaSyCRCtTZz8Q3G-9z3fwJNyQSIm7E7_kT9qQ";
+	$blog_rss = "http://tpryan.blog/feed/";
 
 
 

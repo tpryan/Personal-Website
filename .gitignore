@@ -26,3 +26,4 @@ frontend/www/test.php
 .DS_Store
 sql/prod.sql
 main/config/creds.php
+main/config/creds.php
