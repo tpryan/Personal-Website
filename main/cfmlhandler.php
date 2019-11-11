@@ -61,8 +61,12 @@ function isBlogEntry($dbInfo, $urlString){
 	}
 
 	// Make a MySQL Connection
-	$dbConn = mysql_connect($dbInfo['host'], $dbInfo['username'], $dbInfo['password']) or die(mysql_error());
-	mysql_select_db($dbInfo['db'], $dbConn) or die(mysql_error());
+	if (isset($_SERVER['SERVER_SOFTWARE']) && strpos($_SERVER['SERVER_SOFTWARE'],'Google App Engine') !== false) {
+		$dbConn = mysqli_connect(null, $dbInfo['username'], $dbInfo['password'], $dbInfo['db'], null, "/cloudsql/" .$dbInfo['host']);
+	} else{
+		$dbConn = mysqli_connect($dbInfo['host'], $dbInfo['username'], $dbInfo['password'], $dbInfo['db']) or die(mysqli_error());
+	}	
+	
 
 	// Retrieve all the data from the "example" table
 	$query = " SELECT count(post_title) as doesExist   
@@ -72,9 +76,12 @@ function isBlogEntry($dbInfo, $urlString){
         post_name='" . $search_term . "'
         AND post_type='post'";
 
-	$entries = mysql_query($query, $dbConn) or die(mysql_error()); 
+	$entries = mysqli_query($dbConn, $query) or die(mysql_error()); 
 
-	$doesExist = mysql_result($entries,0,"doesExist");
+	$row = mysqli_fetch_array($entries, MYSQLI_ASSOC);
+
+
+	$doesExist = $row['doesExist'];
 
 
 	if ($doesExist){

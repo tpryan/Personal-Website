@@ -1,4 +1,5 @@
 BASEDIR = $(shell pwd)
+APPNAME = terrenceryan
 include Makefile.properties
 
 
@@ -22,3 +23,15 @@ deploy: env
 runtests:
 	@echo "test"
 	phpunit test	
+
+builddocker:
+	docker build -t $(APPNAME) "$(BASEDIR)/."	
+
+serve: 
+	docker run --name=$(APPNAME) -d -P -p 8080:80 $(APPNAME)	
+
+rundocker: builddocker serve
+
+cleandocker:
+	-docker stop $(APPNAME)
+	-docker rm $(APPNAME)		

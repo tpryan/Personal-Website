@@ -1,11 +1,9 @@
 <?php
-
 	// use google\appengine\api\app_identity\AppIdentityService;
 	$app_name = "terrenceryan_com";
 
 	$memcache = new Memcached;
 	$memcache->addServer('127.0.0.1', 11211);
-
 	broadcast($memcache->getResultCode());
 	
 
