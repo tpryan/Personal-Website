@@ -1,5 +1,4 @@
-runtime: php55
-api_version: 1
+runtime: php72
 
 handlers:
 
@@ -12,45 +11,37 @@ handlers:
 - url: /(.+\.(html|css|js|woff|ttf|txt))$
   static_files: \1
   upload: .+\.(html|css|js|woff|ttf|txt)$
-  application_readable: true  
 
 
-- url: /blog/post.cfm.*
-  script: /cfmlhandler.php  
+# - url: /blog/post.cfm.*
+#   script: /cfmlhandler.php  
 
-- url: /blog/(.+\.cfm)$
-  script: /cfmlhandler.php   
+# - url: /blog/(.+\.cfm)$
+#   script: /cfmlhandler.php   
 
-- url: /(.+\.cfm)$
-  script: /cfmlhandler.php 
+# - url: /(.+\.cfm)$
+#   script: /cfmlhandler.php 
 
-# Redirect all blog traffic. 
-- url: /blog/.*
-  script: /blog/parse.php
+# # Redirect all blog traffic. 
+# - url: /blog/.*
+#   script: /blog/parse.php
 
 # Serve images as static resources.
 - url: /(.+\.(gif|png|jpg|svg|ico))$
   static_files: \1
   upload: .+\.(gif|png|jpg|svg|ico)$
-  application_readable: true  
 
 # Serve up aby root php scripts.
-- url: /(.+\.php)$
-  script: \1
+# - url: /(.+\.php)$
+#   script: \1
 
-# Set subfolder root to index.php
-- url: /(.+)/$
-  script: \1/index.php
+# # Set subfolder root to index.php
+# - url: /(.+)/$
+#   script: \1/index.php
 
-- url: /(.+)$
-  script: \1/index.php 
+# - url: /(.+)$
+#   script: \1/index.php 
 
 # Set root to index.php
-- url: /
-  script: /index.php  
-
-
-
-
-skip_files:
-    - Makefile 
+- url: .*
+  script: auto

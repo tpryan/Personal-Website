@@ -11,7 +11,7 @@ $cache_age = 2 * 60 * 60;
 $contentCreationStore = $lanyrd_url;
 $contentCreationFunction = function ($lanyrd_url, $count){return refreshLanyrdHTML($lanyrd_url, $count);};
 
-$content_html = getFromCacheOrCreate($memcache, $cache_name, $cache_age, $contentCreationFunction, $contentCreationStore, $count);
+$content_html = getFromCacheOrCreate($cache_name, $cache_age, $contentCreationFunction, $contentCreationStore, $count);
 
 echo $content_html;
 

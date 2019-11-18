@@ -13,7 +13,7 @@ $contentCreationFunction = function ($blog_rss, $count){return refreshBlogHTML2(
 
 $contentCreationStore = $blog_rss;
 
-$content_html = getFromCacheOrCreate($memcache, $cache_name, $cache_age, $contentCreationFunction, $contentCreationStore, $count);
+$content_html = getFromCacheOrCreate($cache_name, $cache_age, $contentCreationFunction, $contentCreationStore, $count);
 
 echo $content_html;
 
@@ -110,7 +110,7 @@ function generateBlogHTML($entries){
 		$excerpt = "";
 		$url = $row['link'];
 		$thumb = "";
-		$date = $row['pubDate'];
+		$date = strtotime($row['pubDate']);
 		$item = "";
 		$item .= '			<article>'. "\n";
 		$item .= '				<h1><a href="' . $url . '">' . $title .'</a></h1>'. "\n";

@@ -8,11 +8,9 @@ $cache_name = $app_name . "_speakerdeck";
 $count = 2;
 $cache_age = 2 * 60 * 60;
 
-
 $contentCreationStore = $speakerdeck_url;
 $contentCreationFunction = function ($speakerdeck_url, $count){return refreshSpeakerDeckHTML($speakerdeck_url, $count);};
-
-$content_html = getFromCacheOrCreate($memcache, $cache_name, $cache_age, $contentCreationFunction, $contentCreationStore, $count);
+$content_html = getFromCacheOrCreate($cache_name, $cache_age, $contentCreationFunction, $contentCreationStore, $count);
 
 echo $content_html;
 

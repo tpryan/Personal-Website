@@ -9,16 +9,13 @@ env:
 	@gcloud config set compute/zone $(GCP_ZONE)
 	@gcloud config set account $(GCP_ACCOUNT)
 
-run:
-	cd "$(BASEDIR)/sql/" && $(MAKE) run
-	cd "$(BASEDIR)/frontend/" && $(MAKE) run	
 
-clean:
-	cd "$(BASEDIR)/sql/" && $(MAKE) clean
-	cd "$(BASEDIR)/frontend/" && $(MAKE) clean	
+build: env
+	gcloud builds submit -q
 
-deploy: env
-	cd "$(BASEDIR)/frontend/" && $(MAKE) deploy	
+deploy: build
+	gcloud beta run deploy $(APPNAME) -q --image gcr.io/$(GCP_PROJECT)/$(APPNAME)	--platform managed --allow-unauthenticated
+
 
 runtests:
 	@echo "test"
@@ -28,7 +25,7 @@ builddocker:
 	docker build -t $(APPNAME) "$(BASEDIR)/."	
 
 serve: 
-	docker run --name=$(APPNAME) -d -P -p 8080:80 $(APPNAME)	
+	docker run --name=$(APPNAME) -d -P -p 8080:8080 $(APPNAME)	
 
 dev: cleandocker builddocker serve
 

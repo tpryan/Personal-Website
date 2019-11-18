@@ -9,7 +9,7 @@ $dbInfo = $newDB;
 
 $contentCreationFunction = function ($dbInfo){return generateBlogHTML(getPostsFromDataBase($dbInfo));};
 $contentCreationStore = $dbInfo;
-$content_html = getFromCacheOrCreate($memcache, $cache_name, $cache_age, $contentCreationFunction, $contentCreationStore, 0);
+$content_html = getFromCacheOrCreate($cache_name, $cache_age, $contentCreationFunction, $contentCreationStore, 0);
 
 echo $content_html;
 

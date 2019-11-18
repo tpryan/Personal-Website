@@ -363,6 +363,8 @@ header .short {
 }
 .main article .portrait {
   border: 1px solid #ccc;
+  height: 350px;
+  margin: 0 0 0 10px;
 }
 .main article .logo {
   border-radius: 0;
@@ -548,7 +550,7 @@ textarea {
   .main article .portrait {
     float: right;
     width: 250px;
-    height: 250px;
+    height: 350px;
   }
 }
 @media screen and (min-width: 600px) and (max-width: 699px) {
@@ -560,7 +562,7 @@ textarea {
   .main article .portrait {
     float: right;
     width: 295px;
-    height: 295px;
+    height: 395px;
   }
 }
 @media screen and (min-width: 700px) and (max-width: 799px) {

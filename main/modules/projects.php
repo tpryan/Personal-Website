@@ -10,7 +10,7 @@ $cache_age = 2 * 60 * 60;
 $contentCreationStore = $github_url;
 $contentCreationFunction = function ($github_url, $count){return refreshGitHubHTML($github_url, $count);};
 
-$content_html = getFromCacheOrCreate($memcache, $cache_name, $cache_age, $contentCreationFunction, $contentCreationStore, $count);
+$content_html = getFromCacheOrCreate($cache_name, $cache_age, $contentCreationFunction, $contentCreationStore, $count);
 
 echo $content_html;
 
