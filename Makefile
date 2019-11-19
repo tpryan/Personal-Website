@@ -16,12 +16,21 @@ deploy: build
 	--image gcr.io/$(GCP_PROJECT)/$(APPNAME) \
 	--platform managed --allow-unauthenticated
 
-runtests:
+test: cleandocker testbuild testserve
+	sleep 2 
 	@echo "test"
-	phpunit test	
+	docker exec -it $(APPNAME)_test /root/.composer/vendor/phpunit/phpunit/phpunit DevDefaultURLTest.php 
+	docker exec -it $(APPNAME)_test /root/.composer/vendor/phpunit/phpunit/phpunit DevBlogURLTest.php 
+		
+
+testserve: 
+	docker run --name=$(APPNAME)_test  -d -P -p 8081:8080 $(APPNAME)_test	
 
 builddocker:
 	docker build -t $(APPNAME) "$(BASEDIR)/."	
+
+testbuild:
+	docker build -t $(APPNAME)_test "$(BASEDIR)/."	-f test.Dockerfile	
 
 serve: 
 	docker run --name=$(APPNAME) -d -P -p 8080:8080 $(APPNAME)	
@@ -30,7 +39,9 @@ dev: cleandocker builddocker serve
 
 cleandocker:
 	-docker stop $(APPNAME)
-	-docker rm $(APPNAME)		
+	-docker rm $(APPNAME)
+	-docker stop $(APPNAME)_test
+	-docker rm $(APPNAME)_test			
 
 css:
 	sass --watch main/assets/css/scss/main.scss:main/assets/css/main.css
