@@ -93,6 +93,9 @@ header .short {
 .main h1 a, .main h2 a {
   color: #333;
 }
+.main h1 .download {
+  font-size: 14px;
+}
 .main .column {
   width: 33%;
   display: block;

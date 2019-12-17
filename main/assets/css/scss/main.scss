@@ -58,6 +58,12 @@ header{
 		}
 	}
 
+	h1{
+		.download{
+			font-size: 14px;
+		}
+	}
+
 	@extend .centered;
 	.column{
 		width: 33%;

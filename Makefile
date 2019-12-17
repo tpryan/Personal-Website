@@ -12,7 +12,7 @@ build: env
 	gcloud builds submit -q
 
 deploy: build
-	gcloud beta run deploy $(APPNAME) -q \
+	gcloud beta run deploy $(APPNAME) -q --region $(GCP_REGION) \
 	--image gcr.io/$(GCP_PROJECT)/$(APPNAME) \
 	--platform managed --allow-unauthenticated
 
