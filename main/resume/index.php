@@ -9,14 +9,17 @@
 </div>
 
 <div class="main">
-	<h1>Resume</h1>
+	<h1>Resume <div class="download"><a href="https://storage.googleapis.com/terrenceryan.com/img/Resume2019.pdf">Download</a></div></h1>
 	<article class="resume">
+		
 		<div class="column full">
 			<h2>Objective</h2>
-			<p class="toplevel"><em>I love technology that helps people extract ideas from their heads 
-				and into something real &mdash; be it code, design, or hardware. I’m looking for a 
-				position that allows me use my people skills and technical knowledge to 
-				inspire people make their ideas concrete. </em></p>
+			<p class="toplevel"><em>I love technology that helps people extract 
+			ideas from their heads and into something real &mdash; be it code, design, 
+			or hardware. I’m looking for a position that allows me to use my 
+			people skills and technical knowledge to inspire people make their 
+			ideas concrete.</em></p>
+
 			<h2>Publications</h2>
 			
 			<div class="position">
@@ -27,23 +30,53 @@
 				<div class="details">
 					<h3>Driving Technical Change</h3>
 					
-					<p>Details tools and techniques aiding developers to convince resistant co-workers 
-						to adopt new technologies. It presents hesitant coworkers’ reasoning as development 
-						anti-patterns.  It then presents solutions as positive patterns and outlines a 
-						broader strategy to run a comapaign to effect change inside one’s organization.</p>
+					<p>Details tools and techniques for getting resistant 
+					co-workers to adopt new technologies. It presents soft 
+					skills as if they were software development patterns.  This 
+					makes it easier for developers to recognize what parts they 
+					can use and adopt the book’s tactics into their own plans.</p>
 				</div>
 			</div>
 
 			<h2>Experience</h2>
+
 			<div class="position">
 				<header>
 					<h4>Google</h4>
-					<time>12/2014 &mdash; Now</time>
+					<time>11/2017 &mdash; Now</time>
+				</header>
+				<div class="details">
+					<h3>Senior Developer Advocate</h3>
+					<p>Online Content and Experiences - work with marketing and 
+					product teams to globally scale demonstrations of our 
+					products, and work on first party events to ensure 
+					technically accurate physical demos at our events.</p>
+					<p><strong>Activities Include:</strong></p>
+					<ul>
+						<li>Tech lead the Next Showcase effort - 120 demos of technical products for 30,000 event attendees</li>
+						<li>Created <a href="https://google.dev">Cloud Journey</a> - an online tutorial using an RPG game as the interface, to encourage cross product usage. </li>
+						<li>Launched <a href="https://showcase.withgoogle.com">Showcase Online</a> - an online collection of demos and experiments which highlight new cloud stories or technologies</li>
+					</ul>
+				</div>	
+			</div>	
+
+
+			<div class="position">
+				<header>
+					<h4>Google</h4>
+					<time>12/2014 &mdash; 11/2017</time>
 				</header>
 				<div class="details">
 					<h3>Developer Advocate</h3>
-					<p>Promote the adoption of Google Cloud Platform, and collect and deliver constructive
-						criticism to make the platform better.</p>
+					<p>Extol the virtues of Google’s Cloud Computing tools, and 
+					to talk to customers, potential customers, and critics to 
+					get feedback to make the platform better.</p>
+					<p><strong>Activities Include:</strong></p>
+					<ul>
+						<li>Handle outreach to the PHP and DevOps Community</li>
+						<li>Create and consult on interactive demos for 1st Party Events.</li>
+						<li>Create tooling for measuring and reporting Developer Relations impact</li>
+					</ul>
 				</div>	
 			</div>	
 			<div class="position">
@@ -161,42 +194,65 @@
 			<table class="toplevel skills">
 				<thead>
 					<tr>
-						<th>Evangelism</th>
+						<th>Advocacy</th>
 						<th>Development</th>
-						<th>Web</th>
 						<th>Systems</th>
+						<th>Languages</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>
+							<h3>Expert</h3>
 							<ul>
 								<li>Public Speaking</li>
 								<li>Writing</li>
 								<li>Social Media</li>
-								<li>Video Production</li>
+								<li>Messaging</li>
+								<li>Demos</li>
+								
+								
 							</ul>
+							<h3>Provicient</h3>
+							<ul><li>Video Production</li></ul>
 						</td>
 						<td>
+							<h3>Proficient</h3>
 							<ul>
 								<li>git</li>
+								<li>Docker</li>
+							</ul>
+							<h3>Rusty</h3>
+							<ul>
 								<li>Jenkins</li>
 								<li>Subversion</li>
 							</ul>
 						</td>
+						
 						<td>
+							<h3>Proficient</h3>
 							<ul>
-								<li>HTML/JS/CSS</li>
-								<li>PHP</li>
-								<li>ColdFusion</li>
+								<li>Virtual Machines</li>
+								<li>Kubernetes</li>
+								<li>Containers</li>
+								<li>Serverless</li>
 								<li>MySQL</li>
+								<li>Firestore (NoSQL)</li>
 							</ul>
 						</td>
 						<td>
+							<h3>Proficient</h3>
 							<ul>
-								<li>Active Directory</li>
-								<li>IIS</li>
-								<li>Windows Load Balancing</li>
+								<li>HTML/JS/CSS</li>
+								<li>PHP</li>
+								<li>Go</li>
+							</ul>
+							<h3>Rusty</h3>
+							<ul>
+								<li>Java</li>
+								<li>ColdFusion</li>
+								<li>Perl</li>
+								<li>ActionScript</li>
 							</ul>
 						</td>
 					</tr>
@@ -221,11 +277,6 @@
                         		<img src="//storage.googleapis.com/terrenceryan.com/img/twitter.png" height="55" width="155" alt="Twitter" class="twitter" />
                     		</a>
 						</td>
-						<td>
-							<a href="http://twitter.com/tpryan" title="Lanyrd / tpryan">
-                        		<img src="//storage.googleapis.com/terrenceryan.com/img/lanyrd.png" height="36" width="150" alt="Lanyrd" class="lanyrd" />
-                    		</a>
-						</td>
 					</tr>
 					<tr>
 						<td>
@@ -237,11 +288,6 @@
 							<a href="https://github.com/tpryan" title="github: Terrence Ryan">
                     			<img src="//storage.googleapis.com/terrenceryan.com/img/githublogo.png" height="45" width="100" alt="github" />
                 		</a>	
-						</td>
-						<td>
-							<a href="http://www.behance.net/tpryan" title="Behance: Terrence Ryan">
-                    			<img src="//storage.googleapis.com/terrenceryan.com/img/behance.png" height="56" width="150" alt="behance" />
-                			</a>
 						</td>
 					</tr>
 				</table>

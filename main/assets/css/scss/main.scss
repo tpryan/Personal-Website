@@ -347,7 +347,7 @@ header, footer, .tweet, .page-title, .top-bar nav{
 		}
 
 		.portrait{
-			border: 1px solid #ccc;
+			border: 1px solid #222;
 			height: 350px;
 			margin: 0 0 0 10px;
 		}
@@ -463,6 +463,14 @@ textarea{
 		margin-left: 2px;
 		margin-bottom: 0;
 	}
+	
+	.skills{
+		h3{
+			font-size: 14px;
+			margin: 5px 0 2px 0;
+		}
+	}
+
 	.toplevel{
 		margin-left: 25%;
 	}
@@ -471,19 +479,24 @@ textarea{
 		th{
 			color: $main-highlight-color;
 			text-align: left;
+			
 		}
 		td{
-			width: 25%
+			width: 25%;
+			vertical-align: top;
+			padding: 0 30px 0 0;
 		}
 		ul{
-			margin: 0 0 0 20px;
+			margin: 0 0 10px 20px;
 			padding: 0;
 		}
 	}
 	.socialnetworks{
 		width: 60%;
 		td{
-			width: 33%;
+			width: 50%;
+			padding: 10px 0;
+
 		}
 	}	 
 }
