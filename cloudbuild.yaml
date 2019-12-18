@@ -1,15 +1,12 @@
 steps:
- - name: 'gcr.io/cloud-builders/docker'
-   entrypoint: 'bash'
-   args:
-   - '-c'
-   - |
-     docker pull gcr.io/$PROJECT_ID/terrenceryan:latest || exit 0
- - name: 'gcr.io/cloud-builders/docker'
-   args: [
-            'build',
-            '-t', 'gcr.io/$PROJECT_ID/terrenceryan:latest',
-            '--cache-from', 'gcr.io/$PROJECT_ID/terrenceryan:latest',
-            '.'
-        ]
-images: ['gcr.io/$PROJECT_ID/terrenceryan:latest']
+  # build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/terrenceryan', '.']
+  # push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/terrenceryan']
+  # Deploy container image to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run', 'deploy', 'terrenceryan', '--image', 'gcr.io/$PROJECT_ID/terrenceryan', '--region', 'us-central1','--platform', 'managed', '--quiet']
+images:
+- gcr.io/$PROJECT_ID/terrenceryan

@@ -3,8 +3,9 @@
 
 function redirect($url, $statusCode = 303)
 {
-   header('Location: ' . $url, true, $statusCode);
-   die();
+	header('Location: ' . $url, true, $statusCode);
+	echo "<script>location.href='" . $url ."';</script>";
+   	exit();
 }
 
 function blogcatch(){
@@ -13,9 +14,10 @@ function blogcatch(){
 		$base_url = "https://tpryan.blog";
 
 		$target = $base_url . "/" . $point;
-
+		
 		redirect($target, 301);
 	}
 }
+
 
 ?>

@@ -3,7 +3,6 @@ include_once 'module_common.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/config/creds.php';
 
 
-$speakerdeck_url = "https://speakerdeck.com/tpryan.atom";
 $cache_name = $app_name . "_speakerdeck";
 $count = 2;
 $cache_age = 2 * 60 * 60;
