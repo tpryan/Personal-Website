@@ -23,5 +23,6 @@ if (!isset($page_title)) {
 	echo '<script type="text/javascript" src="/assets/js/jquery-1.8.0.min.js"></script>' , chr(10);
 	echo chr(9),'<script type="text/javascript" src="/assets/js/contact.js"></script>';
 	} ?>
+	<!-- Just checking.  -->
 </head>
 <body>
