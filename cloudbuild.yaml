@@ -1,7 +1,7 @@
 steps:
 # build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/terrenceryan_test', 'test.Dockerfile']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/terrenceryan_test', '-f', 'test.Dockerfile']
 # build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['run', '-d', '--name=terrenceryan_test', 'gcr.io/$PROJECT_ID/terrenceryan_test']
