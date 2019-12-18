@@ -1,6 +1,5 @@
 <?php 
 
-
 function redirect($url, $statusCode = 303)
 {
 	header('Location: ' . $url, true, $statusCode);
@@ -9,14 +8,32 @@ function redirect($url, $statusCode = 303)
 }
 
 function blogcatch(){
-	if (strpos($_SERVER["REQUEST_URI"], "post.cfm") > -1){
-		$point = end(explode("/",$_SERVER["REQUEST_URI"]));
-		$base_url = "https://tpryan.blog";
+	$path = $_GET["orig"];
 
-		$target = $base_url . "/" . $point;
-		
+	$blogpart =  isBlog();
+	if (strlen($blogpart) > 0){
+		$point = str_replace($blogpart, "", $path);
+		$target = "https://tpryan.blog" . $point;
 		redirect($target, 301);
 	}
+}
+
+function isBlog(){
+	$blog_strings = [];
+	array_push($blog_strings, "/post.cfm");
+	array_push($blog_strings, "/blog/index.php");
+	
+
+	
+	for ($i=0; $i<count($blog_strings); $i++){
+
+		if (strpos($_SERVER["REQUEST_URI"], $blog_strings[$i]) > -1){
+			return $blog_strings[$i];
+		}	
+	}
+	
+	return "";
+
 }
 
 

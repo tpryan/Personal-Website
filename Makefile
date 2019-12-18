@@ -17,14 +17,11 @@ deploy: build
 	--platform managed --allow-unauthenticated
 
 test: cleandocker testbuild testserve
-	sleep 2 
 	@echo "test"
-	docker exec -it $(APPNAME)_test /root/.composer/vendor/phpunit/phpunit/phpunit DevDefaultURLTest.php 
-	docker exec -it $(APPNAME)_test /root/.composer/vendor/phpunit/phpunit/phpunit DevBlogURLTest.php 
 		
 
 testserve: 
-	docker run --name=$(APPNAME)_test  -d -P -p 8081:8080 $(APPNAME)_test	
+	docker run --name=$(APPNAME)_test  -d -P  $(APPNAME)_test	
 
 builddocker:
 	docker build -t $(APPNAME) "$(BASEDIR)/."	

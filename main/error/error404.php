@@ -1,5 +1,6 @@
-
 <?php
+	echo "404!<br />";
+	require '../config/creds.php';
 	include '../modules/blogcatcher.php';
 	blogcatch();
 ?>
