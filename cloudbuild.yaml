@@ -5,8 +5,8 @@ steps:
 # build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['run', '-d', '--name=terrenceryan_test', 'gcr.io/$PROJECT_ID/terrenceryan_test']
-- name: 'alpine'
-  args: ['/bin/sh', '/run_tests.sh']      
+- name: 'ubuntu'
+  args: ['bash', '/run_tests.sh']      
   # build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/terrenceryan', '.']
