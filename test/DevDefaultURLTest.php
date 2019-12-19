@@ -6,7 +6,7 @@ class MyURLTest extends TestCase
 {
 
     public function getBaseURL() {
-        return "http://".$_SERVER['SERVER_ADDR'].$_SERVER['REQUEST_URI'];
+        return "http://127.0.0.1:8080";
     }
 
     public function testMainURL() {
