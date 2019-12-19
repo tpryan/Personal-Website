@@ -17,7 +17,7 @@ deploy: build
 	--platform managed --allow-unauthenticated
 
 test: cleandocker testbuild testserve
-	sleep 2 
+	# sleep 2 
 	@echo "test"
 	docker exec -it $(APPNAME)_test /run_tests.sh
 		
