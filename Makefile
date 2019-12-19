@@ -19,7 +19,7 @@ deploy: build
 test: cleandocker testbuild testserve
 	# sleep 2 
 	@echo "test"
-	docker exec -it $(APPNAME)_test /run_tests.sh
+	docker exec $(APPNAME)_test /run_tests.sh
 		
 
 testserve: 
