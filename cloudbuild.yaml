@@ -1,11 +1,8 @@
 steps:
 # build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'script-runner', "-f", 'test.Dockerfile', "."]
-# build the container image
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['run', '-d', '--name=terrenceryan_test', '--network=cloudbuild', 'gcr.io/$PROJECT_ID/terrenceryan_test']
-- name: ''script-runner''
+  args: ['build', '-t', 'runner', "-f", 'test.Dockerfile', "."]
+- name: 'runner'
   args: ['bash', '/run_tests.sh']      
   # build the container image
 - name: 'gcr.io/cloud-builders/docker'
